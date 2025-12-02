@@ -28,4 +28,6 @@ public class User
 
     [Required]
     public DateTime created_at { get; set; } = DateTime.Now;
+
+    public ICollection<RefreshToken> RefreshTokens { get; set; } = new List<RefreshToken>();
 }

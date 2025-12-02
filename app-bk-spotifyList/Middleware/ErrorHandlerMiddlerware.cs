@@ -17,7 +17,7 @@ public class ErrorHandlerMiddleware
         }
         catch (Exception ex)
         {
-            context.Response.StatusCode = StatusCodes.Status500InternalServerError;
+            context.Response.StatusCode = StatusCodes.Status400BadRequest;
             await context.Response.WriteAsJsonAsync(new
             {
                 error = ex.Message

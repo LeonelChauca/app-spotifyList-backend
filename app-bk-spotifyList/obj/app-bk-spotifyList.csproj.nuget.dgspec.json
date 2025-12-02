@@ -1,31 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "E:\\ProyectsDev\\app-bk-spotifyList\\app-bk-spotifyList\\app-bk-spotifyList.csproj": {}
+    "/Users/leonelchauca/Documents/c#/app-spotifyList-backend/app-bk-spotifyList/app-bk-spotifyList.csproj": {}
   },
   "projects": {
-    "E:\\ProyectsDev\\app-bk-spotifyList\\app-bk-spotifyList\\app-bk-spotifyList.csproj": {
+    "/Users/leonelchauca/Documents/c#/app-spotifyList-backend/app-bk-spotifyList/app-bk-spotifyList.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\ProyectsDev\\app-bk-spotifyList\\app-bk-spotifyList\\app-bk-spotifyList.csproj",
+        "projectUniqueName": "/Users/leonelchauca/Documents/c#/app-spotifyList-backend/app-bk-spotifyList/app-bk-spotifyList.csproj",
         "projectName": "app-bk-spotifyList",
-        "projectPath": "E:\\ProyectsDev\\app-bk-spotifyList\\app-bk-spotifyList\\app-bk-spotifyList.csproj",
-        "packagesPath": "C:\\Users\\Leoni\\.nuget\\packages\\",
-        "outputPath": "E:\\ProyectsDev\\app-bk-spotifyList\\app-bk-spotifyList\\obj\\",
+        "projectPath": "/Users/leonelchauca/Documents/c#/app-spotifyList-backend/app-bk-spotifyList/app-bk-spotifyList.csproj",
+        "packagesPath": "/Users/leonelchauca/.nuget/packages/",
+        "outputPath": "/Users/leonelchauca/Documents/c#/app-spotifyList-backend/app-bk-spotifyList/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Leoni\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/leonelchauca/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -122,7 +116,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.308/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

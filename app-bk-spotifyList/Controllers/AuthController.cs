@@ -17,10 +17,11 @@ namespace app_bk_spotifyList.Controllers
         }
 
         [HttpPost("login")]
+        [ProducesResponseType(StatusCodes.Status201Created)]
         public async Task<IActionResult> Login([FromBody] AuthDto authDto)
         {
             var result = await _authService.login(authDto);
-            return Ok(result);
+            return StatusCode(StatusCodes.Status201Created, result);
         }
 
 

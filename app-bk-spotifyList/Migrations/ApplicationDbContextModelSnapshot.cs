@@ -21,6 +21,37 @@ namespace app_bk_spotifyList.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.Entity("app_bk_spotifyList.Models.RefreshToken", b =>
+                {
+                    b.Property<int>("id_refreshToken")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id_refreshToken"));
+
+                    b.Property<DateTime>("created_at")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<DateTime>("expires_at")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<int>("id_usuario")
+                        .HasColumnType("integer");
+
+                    b.Property<bool>("is_active")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("refresh_token")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("id_refreshToken");
+
+                    b.HasIndex("id_usuario");
+
+                    b.ToTable("RefreshTokens");
+                });
+
             modelBuilder.Entity("app_bk_spotifyList.Models.User", b =>
                 {
                     b.Property<int>("id_usuario")
@@ -57,6 +88,22 @@ namespace app_bk_spotifyList.Migrations
                         .IsUnique();
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("app_bk_spotifyList.Models.RefreshToken", b =>
+                {
+                    b.HasOne("app_bk_spotifyList.Models.User", "User")
+                        .WithMany("RefreshTokens")
+                        .HasForeignKey("id_usuario")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("app_bk_spotifyList.Models.User", b =>
+                {
+                    b.Navigation("RefreshTokens");
                 });
 #pragma warning restore 612, 618
         }
