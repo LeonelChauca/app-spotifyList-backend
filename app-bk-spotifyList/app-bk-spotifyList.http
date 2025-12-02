@@ -1,0 +1,6 @@
+@app_bk_spotifyList_HostAddress = http://localhost:5007
+
+GET {{app_bk_spotifyList_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
