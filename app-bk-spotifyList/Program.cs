@@ -2,6 +2,7 @@ using System.Text;
 using app_bk_spotifyList.Repository;
 using app_bk_spotifyList.Repository.IRepository;
 using app_bk_spotifyList.Services;
+using app_bk_spotifyList.Services.BackgroundServices;
 using app_bk_spotifyList.Services.IServices;
 using DotNetEnv;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -29,6 +30,9 @@ builder.Services.AddScoped<IPasswordService, PasswordService>();
 builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<IRefreshTokenService, RefreshTokenService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddHttpClient();
+builder.Services.AddSingleton<ISpotifyService, SpotifyService>();
+builder.Services.AddHostedService<SpotifyTokenInitializer>();
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddControllers();
