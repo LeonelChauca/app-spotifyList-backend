@@ -1,6 +1,7 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using app_bk_spotifyList.Models.Dtos.RefreshToken;
 using app_bk_spotifyList.Services.IServices;
 using Microsoft.IdentityModel.Tokens;
 
@@ -10,12 +11,14 @@ public class TokenService : ITokenService
 {
 
     private readonly IConfiguration _config;
+    private readonly IRefreshTokenService _refreshTokenService;
 
-    public TokenService(IConfiguration config)
+    public TokenService(IConfiguration config, IRefreshTokenService refreshTokenService)
     {
         _config = config;
+        _refreshTokenService = refreshTokenService;
     }
-    string ITokenService.GenerateAccessToken(int userId, string email)
+    public string GenerateAccessToken(int userId, string email)
     {
         var jwtSettings = _config.GetSection("Jwt");
 
@@ -25,6 +28,8 @@ public class TokenService : ITokenService
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(keyString));
 
         var credentials= new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
+        
 
         var claims = new[]
         {
@@ -36,7 +41,7 @@ public class TokenService : ITokenService
             issuer: jwtSettings["Issuer"],
             audience: jwtSettings["Audience"],
             claims: claims,
-            expires: DateTime.UtcNow.AddMinutes(int.Parse(jwtSettings["AccessTokenExpirationMinutes"])),
+            expires: DateTime.UtcNow.AddMinutes(int.Parse(jwtSettings["AccessTokenExpirationMinutes"]!)),
             signingCredentials: credentials
         );
         
@@ -45,8 +50,25 @@ public class TokenService : ITokenService
 
     
 
-    string ITokenService.GenerateRefreshToken()
+    public async Task<string> GenerateRefreshToken(int userId)
     {
-        return Convert.ToBase64String(Guid.NewGuid().ToByteArray());
+
+        string refreshToken= Convert.ToBase64String(Guid.NewGuid().ToByteArray());
+
+
+        var result=await _refreshTokenService.CreateRefreshToken(new CreateRefreshTokenDto
+        {
+            id_usuario= userId,
+            refresh_token= refreshToken,
+            created_at= DateTime.UtcNow,
+            expires_at= DateTime.UtcNow.AddDays(7),
+        });
+        
+        if(!result)
+        {
+            throw new Exception("No se pudo generar el refresh token");
+        }
+
+        return refreshToken;
     }
 }

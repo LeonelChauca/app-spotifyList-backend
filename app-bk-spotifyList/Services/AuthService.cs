@@ -37,12 +37,13 @@ public class AuthService : IAuthService
         
         var accessToken = _tokenService.GenerateAccessToken(user.id_usuario, user.email);
 
-        var refreshToken= _tokenService.GenerateRefreshToken();
+        var refreshToken= await _tokenService.GenerateRefreshToken(user.id_usuario);
 
         return new ResponseLoginDto
         {
             user = _mapper.Map<UserDto>(user),
-            accessToken = accessToken
+            accessToken = accessToken,
+            refreshToken= refreshToken
         };
     }
     

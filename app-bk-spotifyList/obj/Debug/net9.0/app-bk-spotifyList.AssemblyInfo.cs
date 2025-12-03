@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("app-bk-spotifyList")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cdc8cb226578eff5bfe4c07f196b1305bc55b8f0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+79187e9ebb384439bc7fb9343be0323ffc84b36c")]
 [assembly: System.Reflection.AssemblyProductAttribute("app-bk-spotifyList")]
 [assembly: System.Reflection.AssemblyTitleAttribute("app-bk-spotifyList")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

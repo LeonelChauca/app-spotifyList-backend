@@ -21,6 +21,9 @@ namespace app_bk_spotifyList.Controllers
         public async Task<IActionResult> Login([FromBody] AuthDto authDto)
         {
             var result = await _authService.login(authDto);
+            
+            Response.Cookies.Append("refresh_token", result.refreshToken, new CookieOptions { HttpOnly = true });
+    
             return StatusCode(StatusCodes.Status201Created, result);
         }
 

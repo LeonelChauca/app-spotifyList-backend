@@ -286,3 +286,6 @@ E:/ProyectsDev/app-bk-spotifyList/app-bk-spotifyList/bin/Debug/net9.0/System.Ide
 /Users/leonelchauca/Documents/c#/app-spotifyList-backend/app-bk-spotifyList/obj/Debug/net9.0/app-bk-spotifyList.pdb
 /Users/leonelchauca/Documents/c#/app-spotifyList-backend/app-bk-spotifyList/obj/Debug/net9.0/app-bk-spotifyList.genruntimeconfig.cache
 /Users/leonelchauca/Documents/c#/app-spotifyList-backend/app-bk-spotifyList/obj/Debug/net9.0/ref/app-bk-spotifyList.dll
+/Users/leonelchauca/Documents/c#/app-spotifyList-backend/app-bk-spotifyList/bin/Debug/net9.0/Resend.dll
+/Users/leonelchauca/Documents/c#/app-spotifyList-backend/app-bk-spotifyList/bin/Debug/net9.0/DotNetEnv.dll
+/Users/leonelchauca/Documents/c#/app-spotifyList-backend/app-bk-spotifyList/bin/Debug/net9.0/Sprache.dll

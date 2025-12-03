@@ -3,10 +3,13 @@ using app_bk_spotifyList.Repository;
 using app_bk_spotifyList.Repository.IRepository;
 using app_bk_spotifyList.Services;
 using app_bk_spotifyList.Services.IServices;
+using DotNetEnv;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
+
+Env.Load(".env");
 var builder = WebApplication.CreateBuilder(args);
 var jwtSettings = builder.Configuration.GetSection("Jwt");
 var jwtKey = jwtSettings["Key"];
@@ -20,9 +23,11 @@ var key = Encoding.UTF8.GetBytes(jwtKey);
 var dbConnectionsString= builder.Configuration.GetConnectionString("ConexionSql");
 builder.Services.AddDbContext<ApplicationDbContext>(options=> options.UseNpgsql(dbConnectionsString));
 builder.Services.AddScoped<IUserRepository,UserRepository>();
+builder.Services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
 builder.Services.AddScoped<IUserService,UserService>();
 builder.Services.AddScoped<IPasswordService, PasswordService>();
 builder.Services.AddScoped<ITokenService, TokenService>();
+builder.Services.AddScoped<IRefreshTokenService, RefreshTokenService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());

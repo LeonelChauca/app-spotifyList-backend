@@ -5,7 +5,7 @@ namespace app_bk_spotifyList.Services.IServices;
 public interface ITokenService
 {
 
-    public string GenerateRefreshToken();
+    public Task<string> GenerateRefreshToken(int userId);
 
     public string GenerateAccessToken(int userId, string email);
 

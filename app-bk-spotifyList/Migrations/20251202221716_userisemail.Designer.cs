@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -10,9 +11,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace app_bk_spotifyList.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251202221716_userisemail")]
+    partial class userisemail
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -39,6 +42,9 @@ namespace app_bk_spotifyList.Migrations
                         .HasColumnType("integer");
 
                     b.Property<bool>("is_active")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("is_verify_email")
                         .HasColumnType("boolean");
 
                     b.Property<string>("refresh_token")
@@ -68,9 +74,6 @@ namespace app_bk_spotifyList.Migrations
                         .HasColumnType("text");
 
                     b.Property<bool>("is_active")
-                        .HasColumnType("boolean");
-
-                    b.Property<bool>("is_verify_email")
                         .HasColumnType("boolean");
 
                     b.Property<string>("lastName")

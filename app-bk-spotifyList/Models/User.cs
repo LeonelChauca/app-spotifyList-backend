@@ -27,6 +27,9 @@ public class User
     public bool is_active { get; set; } = true;
 
     [Required]
+    public bool is_verify_email { get; set; } = false;
+
+    [Required]
     public DateTime created_at { get; set; } = DateTime.Now;
 
     public ICollection<RefreshToken> RefreshTokens { get; set; } = new List<RefreshToken>();
